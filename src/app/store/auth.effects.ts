@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { combineLatest, of } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { AuthenticationService } from '../auth.service';
 import * as fromAuthActions from './auth.actions';
 
@@ -40,7 +40,7 @@ export class AuthEffects {
   logout$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromAuthActions.logout),
-      map(() => this.authService.logout()),
+      tap(() => this.authService.logout()),
       switchMap(() => of(fromAuthActions.logoutComplete()))
     )
   );
