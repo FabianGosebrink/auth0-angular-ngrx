@@ -1,8 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as authActions from './auth.actions';
 
-export const featureName = 'auth';
-
 export interface AuthState {
   userProfile: any;
   isLoggedIn: boolean;
