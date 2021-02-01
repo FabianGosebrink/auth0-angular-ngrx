@@ -23,7 +23,8 @@ const authReducerInternal = createReducer(
       isLoggedIn,
     };
   }),
-  on(authActions.logout, (state, {}) => {
+
+  on(authActions.logoutComplete, (state, {}) => {
     return {
       ...state,
       userProfile: null,
